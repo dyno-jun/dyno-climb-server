@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: dyno-climb-server
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+
+
+  datasource:
+    url: jdbc:mysql://${DYNO_CLIMB_DB_PATH}:3306/dyno
+    username: ${DYNO_CLIMB_DB_USER_NAME}
+    password: ${DYNO_CLIMB_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+server:
+  port: 3005
+
+aws:
+  s3:
+    bucket: ${AWS_S3_BUCKET}
+    region: ${AWS_REGION}
+  credentials:
+    accessKey: ${AWS_ACCESS_KEY_ID}
+    secretKey: ${AWS_SECRET_ACCESS_KEY}

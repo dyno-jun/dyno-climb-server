@@ -1,0 +1,607 @@
+:doctype: article
+:toc: left
+:toc-title: API REFERENCE (v0.0.18)
+
+:toclevels: 3
+:sectanchors:
+:icons: font
+:stylesheet: ./style.css
+
+
+== Introduction
+
+Welcome to the Dyno, a comprehensive platform designed to revolutionize the climbing experience for enthusiasts of all levels
+
+== Getting Started
+
+All API requests are made through the following base URL:
+
+[source,http]
+----
+https://climb.dyno.co.kr/api/
+----
+
+The supported content type for requests is JSON (`application/json`).
+
+== Endpoints
+
+[cols="3,3,6",options="header"]
+|===
+|HTTP Method |Endpoint |Description
+
+|GET
+|/health
+|Check server status.
+
+|POST
+|/register
+|sign up user
+
+|POST
+|/login
+|login user
+
+|POST
+|/logout
+|logout user
+
+|GET
+|/users/me
+|Get user.
+
+|PUT
+|/users/me
+|Update user.
+
+|POST
+|/search
+|search gym, mission.
+
+|POST
+|/home
+|Get home.
+
+|GET
+|/gyms
+|Get gym list.
+
+|GET
+|/gyms/{id}
+|Get gym by id.
+
+|GET
+|/boulder-problems
+|Get boulder-problems.
+
+|GET
+|/boulder-problems/{id}
+|Get boulder-problem by id.
+
+|GET
+|/mission-groups
+|Get mission group list.
+
+|GET
+|/mission-groups/{id}
+|Get mission group list.
+
+|GET
+|/mission-groups/{id}/missions/{missionId}
+|Get mission.
+
+|PATCH
+|/mission-groups/{id}/missions/{missionId}/participation
+|Participate mission.
+
+|GET
+|/records
+|Get climbing record list.
+
+|GET
+|/records/{id}
+|Get climbing record by id.
+
+|POST
+|/records/
+|Create climbing record.
+
+|PUT
+|/records/{id}
+|Update climbing record by id.
+
+|DELETE
+|/records/{id}
+|delete climbing record by id.
+
+|POST
+|/records/{id}/mission
+|submit mission record
+
+|POST
+|/hashtags/
+|Create hashtag.
+
+|GET
+|/hashtags/
+|Get hashtag list.
+
+|===
+
+=== Server Status
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/health
+----
+
+=== User
+
+==== Login
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/login
+----
+
+**Example curl command:**
+
+include::{snippets}/login/curl-request.adoc[]
+
+**Request Body:**
+
+include::{snippets}/login/request-body.adoc[]
+include::{snippets}/login/request-fields.adoc[]
+
+**Response Body:**
+
+include::{snippets}/login/response-body.adoc[]
+
+include::{snippets}/login/response-fields.adoc[]
+
+==== Register
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/register
+----
+
+**Example curl command:**
+
+include::{snippets}/register/curl-request.adoc[]
+
+**Request Body:**
+
+include::{snippets}/register/request-body.adoc[]
+include::{snippets}/register/request-fields.adoc[]
+
+==== Get User
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/users/me
+----
+
+**Example curl command:**
+
+include::{snippets}/get-user/curl-request.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-user/response-body.adoc[]
+
+include::{snippets}/get-user/response-fields.adoc[]
+
+==== Update User
+
+[source,http]
+----
+PUT https://climb.dyno.co.kr/api/users/me
+----
+
+**Example curl command:**
+
+include::{snippets}/update-user/curl-request.adoc[]
+
+**Request Body:**
+
+include::{snippets}/update-user/request-body.adoc[]
+include::{snippets}/update-user/request-fields.adoc[]
+
+**Response Body:**
+
+include::{snippets}/update-user/response-body.adoc[]
+
+=== Home
+
+==== Get Home
+
+[source,http]
+----
+PUT https://climb.dyno.co.kr/api/home
+----
+
+**Example curl command:**
+
+include::{snippets}/home/curl-request.adoc[]
+
+**Request Body:**
+
+include::{snippets}/home/request-body.adoc[]
+include::{snippets}/home/request-fields.adoc[]
+
+**Response Body:**
+
+include::{snippets}/home/response-body.adoc[]
+include::{snippets}/home/response-fields.adoc[]
+
+=== Search
+
+==== Search
+
+[source,http]
+----
+PUT https://climb.dyno.co.kr/api/search
+----
+
+**Example curl command:**
+
+include::{snippets}/search/curl-request.adoc[]
+
+**Request Body:**
+
+include::{snippets}/search/request-body.adoc[]
+include::{snippets}/search/request-fields.adoc[]
+
+**Response Body:**
+
+include::{snippets}/search/response-body.adoc[]
+include::{snippets}/search/response-fields.adoc[]
+
+=== Boulder Problem
+
+==== Get Boulder Problems
+
+[source,http]
+----
+PUT https://climb.dyno.co.kr/api/boulder-problems
+----
+
+**Example curl command:**
+
+include::{snippets}/get-boulder-problem-list/curl-request.adoc[]
+
+**Query Params:**
+
+include::{snippets}/get-boulder-problem-list/query-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-boulder-problem-list/response-body.adoc[]
+include::{snippets}/get-boulder-problem-list/response-fields.adoc[]
+
+==== Get Boulder Problems By Id
+
+[source,http]
+----
+PUT https://climb.dyno.co.kr/api/boulder-problems/{id}
+----
+
+**Example curl command:**
+
+include::{snippets}/get-boulder-problem/curl-request.adoc[]
+
+**Pat Parameters:**
+include::{snippets}/get-boulder-problem/path-parameters.adoc
+
+**Response Body:**
+
+include::{snippets}/get-boulder-problem/response-body.adoc[]
+include::{snippets}/get-boulder-problem/response-fields.adoc[]
+
+=== Gym
+
+==== Get Gyms
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/gyms
+----
+
+**Example curl command:**
+
+include::{snippets}/get-gym-list/curl-request.adoc[]
+
+**Query Parameters:**
+
+include::{snippets}/get-gym-list/query-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-gym-list/response-body.adoc[]
+
+include::{snippets}/get-gym-list/response-fields.adoc[]
+
+==== Get Gym By Id
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/gyms/{id}
+----
+
+**Example curl command:**
+
+include::{snippets}/get-gym/curl-request.adoc[]
+
+**Path Parameters:**
+
+include::{snippets}/get-gym/path-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-gym/response-body.adoc[]
+
+include::{snippets}/get-gym/response-fields.adoc[]
+
+=== Mission Group
+
+==== Get Mission Groups
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/mission-groups
+----
+
+**Example curl command:**
+
+include::{snippets}/get-mission-group-list/curl-request.adoc[]
+
+**Query Parameters:**
+
+include::{snippets}/get-mission-group-list/query-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-mission-group-list/response-body.adoc[]
+
+include::{snippets}/get-mission-group-list/response-fields.adoc[]
+
+==== Get Mission Group By Id
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/mission-groups/{id}
+----
+
+**Example curl command:**
+
+include::{snippets}/get-mission-group/curl-request.adoc[]
+
+**Path Parameters:**
+
+include::{snippets}/get-mission-group/path-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-mission-group/response-body.adoc[]
+
+include::{snippets}/get-mission-group/response-fields.adoc[]
+
+==== Get Mission By Id
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/mission-groups/{id}/missions/{missionId}
+----
+
+**Example curl command:**
+
+include::{snippets}/get-mission/curl-request.adoc[]
+
+**Path Parameters:**
+
+include::{snippets}/get-mission/path-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-mission/response-body.adoc[]
+
+include::{snippets}/get-mission/response-fields.adoc[]
+
+==== Patch Participate Mission
+
+[source,http]
+----
+PATCH https://climb.dyno.co.kr/api/mission-groups/{id}/missions/{missionId}/participation
+----
+
+**Example curl command:**
+
+include::{snippets}/patch-participate-mission/curl-request.adoc[]
+
+**Path Parameters:**
+
+include::{snippets}/patch-participate-mission/path-parameters.adoc[]
+
+=== Record
+
+==== Get Records
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/records
+----
+
+**Example curl command:**
+
+include::{snippets}/get-record-list/curl-request.adoc[]
+
+**Query Parameters:**
+
+include::{snippets}/get-record-list/query-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-record-list/response-body.adoc[]
+
+include::{snippets}/get-record-list/response-fields.adoc[]
+
+==== Get Record By Id
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/records/{id}
+----
+
+**Example curl command:**
+
+include::{snippets}/get-record/curl-request.adoc[]
+
+**Path Parameters:**
+
+include::{snippets}/get-record/path-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-record/response-body.adoc[]
+
+include::{snippets}/get-record/response-fields.adoc[]
+
+==== Create Record
+
+[source,http]
+----
+POST https://climb.dyno.co.kr/api/records
+----
+
+**Example curl command:**
+
+include::{snippets}/create-record/curl-request.adoc[]
+
+**Request Body:**
+
+include::{snippets}/create-record/request-body.adoc[]
+include::{snippets}/create-record/request-fields.adoc[]
+
+**Response Body:**
+
+include::{snippets}/create-record/response-body.adoc[]
+include::{snippets}/create-record/response-fields.adoc[]
+
+==== Update Record
+
+[source,http]
+----
+PUT https://climb.dyno.co.kr/api/records/{id}
+----
+
+**Example curl command:**
+
+include::{snippets}/update-record/curl-request.adoc[]
+
+**Path Parameters:**
+
+include::{snippets}/update-record/path-parameters.adoc[]
+
+**Request Body:**
+
+include::{snippets}/update-record/request-body.adoc[]
+include::{snippets}/update-record/request-fields.adoc[]
+
+**Response Body:**
+
+include::{snippets}/update-record/response-body.adoc[]
+
+==== Delete Record
+
+[source,http]
+----
+DELETE https://climb.dyno.co.kr/api/records/{id}
+----
+
+**Example curl command:**
+
+include::{snippets}/delete-record/curl-request.adoc[]
+
+**Path Parameters:**
+
+include::{snippets}/delete-record/path-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/delete-record/response-body.adoc[]
+
+=== HashTag
+
+==== Create Record
+
+[source,http]
+----
+POST https://climb.dyno.co.kr/api/hashtags
+----
+
+**Example curl command:**
+
+include::{snippets}/create-hashtag/curl-request.adoc[]
+
+**Request Body:**
+
+include::{snippets}/create-hashtag/request-body.adoc[]
+include::{snippets}/create-hashtag/request-fields.adoc[]
+
+**Response Body:**
+
+include::{snippets}/create-hashtag/response-body.adoc[]
+include::{snippets}/create-hashtag/response-fields.adoc[]
+
+==== Get Hashtags
+
+[source,http]
+----
+GET https://climb.dyno.co.kr/api/hashtags
+----
+
+**Example curl command:**
+
+include::{snippets}/get-hashtag-list/curl-request.adoc[]
+
+**Query Parameters:**
+
+include::{snippets}/get-hashtag-list/query-parameters.adoc[]
+
+**Response Body:**
+
+include::{snippets}/get-hashtag-list/response-body.adoc[]
+
+include::{snippets}/get-hashtag-list/response-fields.adoc[]
+
+== Error Handling
+
+ The API uses standard HTTP status codes to indicate the success or failure of a request.
+Error responses include a JSON object with `code` and `message` fields.
+
+Example error response:
+
+----
+{
+ "code": "E0000",
+ "message": "The input value is incorrect."
+}
+
+----
+
+[cols="2,2, 2",options="header"]
+|===
+|Status | Code |Description
+
+|400
+|E0000
+|The parameter is incorrect.
+
+|500
+|E0001
+|Internal server error.
+
+|403
+|E0002
+|Permission does not exist.
+|===

@@ -1,0 +1,162 @@
+/* General Layout */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0; /* Light text color */
+    background-color: #121212; /* Dark background color */
+}
+
+/* TOC Panel Styling */
+#toc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #1e1e1e; /* Slightly lighter dark background */
+    border-right: 1px solid #333; /* Darker border */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+#toc ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#toc ul ul {
+    margin-left: 15px;
+}
+
+#toc li {
+    margin-bottom: 10px;
+}
+
+#toc a {
+    text-decoration: none;
+    color: #e0e0e0; /* Light blue link color */
+    font-weight: 500;
+}
+
+#toc a:hover {
+    color: #99ccff; /* Lighter blue on hover */
+    text-decoration: underline;
+}
+
+#toctitle {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+/* Main Content Area */
+#content {
+    margin-left: 280px;
+    padding: 20px 40px;
+    background-color: #181818; /* Darker content background */
+    color: #e0e0e0; /* Ensure content text is light */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+}
+
+h2 {
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.3em;
+}
+
+/* Code blocks */
+pre {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-left: 3px solid #66b2ff;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    color: #e0e0e0; /* Light text in code blocks */
+}
+
+code {
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #e0e0e0; /* Light text in inline code */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    color: #e0e0e0; /* Light text in tables */
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #333; /* Darker border for tables */
+    text-align: left;
+}
+
+th {
+    background-color: #2a2a2a; /* Slightly lighter header row */
+    font-weight: 600;
+}
+
+/* Links */
+a {
+    color: #66b2ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #99ccff;
+}
+
+/* Inline elements */
+strong {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+em {
+    font-style: italic;
+    color: #b0b0b0;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #1e1e1e;
+    border-left: 5px solid #66b2ff;
+    color: #b0b0b0;
+    font-style: italic;
+}
+
+/* JSON 코드 블록 스타일링 */
+pre code {
+    color: #dcdcdc; /* 기본 텍스트 색상 */
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+}
+
+
+/* Additional styling for specific syntax elements */
+pre code[data-lang="json"] span span {
+    color: #d63384; /* Pink color for JSON keys */
+}
+
