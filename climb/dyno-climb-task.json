@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "dyno-climb",
-      "image": "",
+      "image": "REPLACE_ME_IN_GITHUB_ACTION",
       "cpu": 0,
       "portMappings": [
         {
@@ -16,24 +16,16 @@
       ],
       "essential": true,
       "environment": [],
-      "environmentFiles": [],
-      "mountPoints": [],
-      "volumesFrom": [],
-      "ulimits": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/dyno-climb-task",
-          "awslogs-create-group": "true",
           "awslogs-region": "ap-northeast-2",
           "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
-      },
-      "systemControls": []
+        }
+      }
     }
   ],
-  "executionRoleArn": "",
   "networkMode": "awsvpc",
   "requiresCompatibilities": [
     "FARGATE"
